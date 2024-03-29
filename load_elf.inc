@@ -28,7 +28,7 @@ do_phdr:
 	mov esi, [rdx + PHDR_OFFSET]
 	add esi, ebx
 
-	mov ecx, [rbx + PHDR_FILESZ]
+	mov ecx, [rdx + PHDR_FILESZ]
 	mov eax, ecx
 	rep movsb
 
@@ -42,6 +42,5 @@ next_phdr:
 	add edx, eax
 	dec ebp
 	jnz do_phdr
-	mov al, 'A'
-	out 0xe9, al
+	
 	jmp QWORD [rbx + ELF_ENTRY]
