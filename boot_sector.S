@@ -154,7 +154,7 @@ dd 1 ; number of sectors in partition
 db 510-($-$$) dup 0x00
 db 0x55, 0xAA
 org KERNEL_LOAD_ADDR
-kernel_file: file "zig-out/bin/kernel"
+kernel_file: file "%KERNEL_ELF_FILE_PATH%"
 stack_begin:
 	rb 1024
 stack_end:
